@@ -1,13 +1,17 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:frontend/core/service_locator.dart';
+import 'package:frontend/features/login/presentation/pages/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:web3auth_flutter/enums.dart';
 import 'package:web3auth_flutter/input.dart';
 import 'package:web3auth_flutter/web3auth_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   ServiceLocator.init();
   final Uri redirectUrl;
   if (Platform.isAndroid) {
@@ -41,12 +45,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      darkTheme: ThemeData(
+        colorScheme: const ColorScheme.dark(),
+        textTheme: GoogleFonts.interTextTheme(),
       ),
+      home: const LoginPage(),
     );
   }
 }
