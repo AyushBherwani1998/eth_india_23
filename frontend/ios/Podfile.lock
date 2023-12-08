@@ -1,0 +1,169 @@
+PODS:
+  - appcheck (1.0.3):
+    - Flutter
+  - BigInt (5.0.0)
+  - connectivity_plus (0.0.1):
+    - Flutter
+    - ReachabilitySwift
+  - CryptoSwift (1.8.0)
+  - device_info_plus (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_native_image (0.0.1):
+    - Flutter
+  - flutter_webrtc (0.9.36):
+    - Flutter
+    - WebRTC-SDK (= 114.5735.08)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - GenericJSON (2.0.2)
+  - image_cropper (0.0.4):
+    - Flutter
+    - TOCropViewController (~> 2.6.1)
+  - image_picker_ios (0.0.1):
+    - Flutter
+  - KeychainSwift (20.0.0)
+  - livekit_client (1.5.3):
+    - Flutter
+    - WebRTC-SDK (= 114.5735.08)
+  - Logging (1.0.0)
+  - openpgp (0.6.0):
+    - Flutter
+  - package_info_plus (0.4.5):
+    - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - ReachabilitySwift (5.0.0)
+  - secp256k1.swift (0.1.4)
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - sqflite (0.0.3):
+    - Flutter
+    - FMDB (>= 2.7.5)
+  - TOCropViewController (2.6.1)
+  - TorusSessionManager (3.0.1):
+    - CryptoSwift (~> 1.8.0)
+    - KeychainSwift (~> 20.0.0)
+    - web3.swift (~> 1.6.0)
+  - url_launcher_ios (0.0.1):
+    - Flutter
+  - web3.swift (1.6.0):
+    - BigInt (~> 5.0.0)
+    - GenericJSON (~> 2.0)
+    - Logging (~> 1.0.0)
+    - secp256k1.swift (~> 0.1)
+  - Web3Auth (7.4.1):
+    - CryptoSwift (~> 1.8.0)
+    - KeychainSwift (~> 20.0.0)
+    - TorusSessionManager (~> 3.0.1)
+    - web3.swift (~> 1.6.0)
+  - web3auth_flutter (2.0.1):
+    - Flutter
+    - Web3Auth (~> 7.4.1)
+  - WebRTC-SDK (114.5735.08)
+
+DEPENDENCIES:
+  - appcheck (from `.symlinks/plugins/appcheck/ios`)
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
+  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_native_image (from `.symlinks/plugins/flutter_native_image/ios`)
+  - flutter_webrtc (from `.symlinks/plugins/flutter_webrtc/ios`)
+  - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
+  - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - livekit_client (from `.symlinks/plugins/livekit_client/ios`)
+  - openpgp (from `.symlinks/plugins/openpgp/ios`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - sqflite (from `.symlinks/plugins/sqflite/ios`)
+  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+  - web3auth_flutter (from `.symlinks/plugins/web3auth_flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - BigInt
+    - CryptoSwift
+    - FMDB
+    - GenericJSON
+    - KeychainSwift
+    - Logging
+    - ReachabilitySwift
+    - secp256k1.swift
+    - TOCropViewController
+    - TorusSessionManager
+    - web3.swift
+    - Web3Auth
+    - WebRTC-SDK
+
+EXTERNAL SOURCES:
+  appcheck:
+    :path: ".symlinks/plugins/appcheck/ios"
+  connectivity_plus:
+    :path: ".symlinks/plugins/connectivity_plus/ios"
+  device_info_plus:
+    :path: ".symlinks/plugins/device_info_plus/ios"
+  Flutter:
+    :path: Flutter
+  flutter_native_image:
+    :path: ".symlinks/plugins/flutter_native_image/ios"
+  flutter_webrtc:
+    :path: ".symlinks/plugins/flutter_webrtc/ios"
+  image_cropper:
+    :path: ".symlinks/plugins/image_cropper/ios"
+  image_picker_ios:
+    :path: ".symlinks/plugins/image_picker_ios/ios"
+  livekit_client:
+    :path: ".symlinks/plugins/livekit_client/ios"
+  openpgp:
+    :path: ".symlinks/plugins/openpgp/ios"
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+  sqflite:
+    :path: ".symlinks/plugins/sqflite/ios"
+  url_launcher_ios:
+    :path: ".symlinks/plugins/url_launcher_ios/ios"
+  web3auth_flutter:
+    :path: ".symlinks/plugins/web3auth_flutter/ios"
+
+SPEC CHECKSUMS:
+  appcheck: e1ab9d4e03736f03e0401554a134d1ed502d7629
+  BigInt: 74b4d88367b0e819d9f77393549226d36faeb0d8
+  connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
+  CryptoSwift: 52aaf3fce7337552863b1d952e408085f0e65030
+  device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_native_image: 9c0b7451838484458e5b0fae007b86a4c2d4bdfe
+  flutter_webrtc: 55df3aaa802114dad390191a46c2c8d535751268
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  GenericJSON: 79a840eeb77030962e8cf02a62d36bd413b67626
+  image_cropper: a3291c624a953049bc6a02e1f8c8ceb162a24b25
+  image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
+  livekit_client: 108b5e32d6036dfc1af5e2237251d2b723a10f76
+  Logging: 9ef4ecb546ad3169398d5a723bc9bea1c46bef26
+  openpgp: 73acb2ac692f13a02bc44b67e5c89b4d5cd20d68
+  package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
+  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
+  sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
+  TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
+  TorusSessionManager: 829495789427b7ad7e29f2b535092a44f3900b42
+  url_launcher_ios: bf5ce03e0e2088bad9cc378ea97fa0ed5b49673b
+  web3.swift: 2263d1e12e121b2c42ffb63a5a7beb1acaf33959
+  Web3Auth: faf43a674c0db748dd4ff7fbe29a355d8736a186
+  web3auth_flutter: 208348cb4e01e0c0191adf740188c3b63f5fe20b
+  WebRTC-SDK: c24d2a6c9f571f2ed42297cb8ffba9557093142b
+
+PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+
+COCOAPODS: 1.14.3

@@ -3,6 +3,10 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  file_selector_linux
+  flutter_webrtc
+  flutter_window_close
+  openpgp
   url_launcher_linux
 )
 
