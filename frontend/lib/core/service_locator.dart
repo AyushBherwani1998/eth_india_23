@@ -12,12 +12,12 @@ class ServiceLocator {
   static GetIt get getIt => GetIt.instance;
 
   static Future<void> init() async {
-    final Web3Client web3client = Web3Client(
-      dotenv.env["RPC_URL"] as String,
-      http.Client(),
-    );
+    // final Web3Client web3client = Web3Client(
+    //   dotenv.env["RPC_URL"] as String,
+    //   http.Client(),
+    // );
 
-    getIt.registerLazySingleton<Web3Client>(() => web3client);
+    // getIt.registerLazySingleton<Web3Client>(() => web3client);
 
     const pairingMetaData = PairingMetadata(
       name: 'Adventure Runner',
@@ -30,7 +30,7 @@ class ServiceLocator {
     getIt.registerLazySingleton<PairingMetadata>(() => pairingMetaData);
 
     final walletConnectModalService = W3MService(
-      projectId: dotenv.env['WALLET_CONNECT_PROJECT_ID'] as String,
+      projectId:dotenv.env['WALLET_CONNECT_PROJECT_ID'] as String ,
       requiredNamespaces: prepareRequiredNameSpace(),
       metadata: getIt<PairingMetadata>(),
     );
