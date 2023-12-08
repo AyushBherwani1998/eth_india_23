@@ -9,7 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.1.0
+  get_it: ^7.6.4
   web3auth_flutter: ^3.1.1
+  web3dart: ^2.7.2
+  web3modal_flutter: ^3.0.1
 
 dev_dependencies:
   flutter_test:
