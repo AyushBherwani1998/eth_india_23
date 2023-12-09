@@ -8,8 +8,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract QuestNFT is ERC721, ERC721URIStorage, Ownable {
     uint256 private _tokenId;
 
-    constructor(address initialOwner, string memory _tokenName, string memory _tokenSymbol)
-        ERC721(_tokenName, _tokenSymbol)
+    constructor(address initialOwner)
+        ERC721("ALT", "ALT")
         Ownable(initialOwner) 
         {}
 
@@ -29,9 +29,8 @@ contract QuestNFT is ERC721, ERC721URIStorage, Ownable {
         return super.supportsInterface(interfaceId);
     }
 
-    function safeMint(address to, string memory uri) public onlyOwner {
+    function safeMint(address to) public onlyOwner {
         _tokenId++;
         _safeMint(to, _tokenId);
-        _setTokenURI(_tokenId, uri);
     }
 }

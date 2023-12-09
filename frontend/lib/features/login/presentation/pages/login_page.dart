@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/core/curve_grid/curve_grid_provider.dart';
 import 'package:frontend/core/service_locator.dart';
 import 'package:frontend/core/utils/scan_util.dart';
 import 'package:frontend/core/widgets/app_button.dart';
+import 'package:frontend/features/quest/presentation/pages/mint_page.dart';
 import 'package:frontend/features/quest/presentation/pages/quest_page.dart';
 import 'package:web3auth_flutter/enums.dart';
 import 'package:web3auth_flutter/input.dart';
@@ -42,16 +44,35 @@ class _LoginPageState extends State<LoginPage> {
           const Spacer(),
           AppButton(
             onTap: () async {
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return const QuestPage(
+              //     title: "Polygon Connect",
+              //   );
+              // }));
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const QuestPage(
-                  title: "Polygon Connect",
-                );
+                return MintPage(contractLabel: "contractLabel");
               }));
               // final response = await QRScanUtil.scan(
               //   context,
               //   title: "Scan Invite QR",
               // );
               // print(response);
+
+              // final curveGrid = ServiceLocator.getIt<CurveGridProvider>();
+              // curveGrid
+              //     .callContractWriteFunction(
+              //       contractLabel: "q",
+              //       contractType: "q",
+              //       methodName: "safeMint",
+              //       from: "0x6d66b909636b4f0C179cb50a3710B3ab614dD67a",
+              //       signer: "0x6d66b909636b4f0C179cb50a3710B3ab614dD67a",
+              //       args: ["0x6d66b909636b4f0C179cb50a3710B3ab614dD67a"],
+              //       signAndSubmit: true,
+              //     )
+              //     .then((value) => value)
+              //     .catchError((_) {
+              //   print(_);
+              // });
               // socialLogin(context);
             },
             buttonText: "Contiue with Google",
