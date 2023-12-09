@@ -5,6 +5,7 @@ import 'package:frontend/core/utils/scan_util.dart';
 import 'package:frontend/core/widgets/app_button.dart';
 import 'package:frontend/features/quest/presentation/pages/mint_page.dart';
 import 'package:frontend/features/quest/presentation/pages/quest_page.dart';
+import 'package:frontend/features/quest/presentation/pages/questionnaire_page.dart';
 import 'package:web3auth_flutter/enums.dart';
 import 'package:web3auth_flutter/input.dart';
 import 'package:web3auth_flutter/web3auth_flutter.dart';
@@ -50,7 +51,10 @@ class _LoginPageState extends State<LoginPage> {
               //   );
               // }));
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return MintPage(contractLabel: "contractLabel");
+                return const QuestionnairePage(
+                  contractLabel: "contractLabel",
+                  contractAddress: "",
+                );
               }));
               // final response = await QRScanUtil.scan(
               //   context,
