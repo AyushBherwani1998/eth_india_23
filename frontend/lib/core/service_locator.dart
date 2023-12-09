@@ -1,4 +1,5 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:frontend/features/home_page/domain/bloc/home_bloc_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:http/http.dart' as http;
@@ -30,7 +31,7 @@ class ServiceLocator {
     getIt.registerLazySingleton<PairingMetadata>(() => pairingMetaData);
 
     final walletConnectModalService = W3MService(
-      projectId:dotenv.env['WALLET_CONNECT_PROJECT_ID'] as String ,
+      projectId: dotenv.env['WALLET_CONNECT_PROJECT_ID'] as String,
       requiredNamespaces: prepareRequiredNameSpace(),
       metadata: getIt<PairingMetadata>(),
     );
@@ -40,5 +41,7 @@ class ServiceLocator {
     getIt.registerLazySingleton<W3MService>(
       () => walletConnectModalService,
     );
+
+    getIt.registerFactory(() => HomeBloc());
   }
 }
