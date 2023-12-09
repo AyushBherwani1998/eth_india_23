@@ -43,7 +43,9 @@ class _LoginPageState extends State<LoginPage> {
           AppButton(
             onTap: () async {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return QuestPage();
+                return const QuestPage(
+                  title: "Polygon Connect",
+                );
               }));
               // final response = await QRScanUtil.scan(
               //   context,
