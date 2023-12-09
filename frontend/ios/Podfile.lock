@@ -10,11 +10,15 @@ PODS:
   - GenericJSON (2.0.2)
   - KeychainSwift (20.0.0)
   - Logging (1.0.0)
+  - MTBBarcodeScanner (5.0.11)
   - package_info_plus (0.4.5):
     - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - qr_code_scanner (0.2.0):
+    - Flutter
+    - MTBBarcodeScanner
   - secp256k1.swift (0.1.4)
   - shared_preferences_foundation (0.0.1):
     - Flutter
@@ -47,6 +51,7 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
@@ -60,6 +65,7 @@ SPEC REPOS:
     - GenericJSON
     - KeychainSwift
     - Logging
+    - MTBBarcodeScanner
     - secp256k1.swift
     - TorusSessionManager
     - web3.swift
@@ -74,6 +80,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  qr_code_scanner:
+    :path: ".symlinks/plugins/qr_code_scanner/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite:
@@ -92,8 +100,10 @@ SPEC CHECKSUMS:
   GenericJSON: 79a840eeb77030962e8cf02a62d36bd413b67626
   KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   Logging: 9ef4ecb546ad3169398d5a723bc9bea1c46bef26
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  qr_code_scanner: bb67d64904c3b9658ada8c402e8b4d406d5d796e
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
