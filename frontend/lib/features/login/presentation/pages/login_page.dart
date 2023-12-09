@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/service_locator.dart';
+import 'package:frontend/core/utils/scan_util.dart';
 import 'package:frontend/core/widgets/app_button.dart';
 import 'package:web3auth_flutter/enums.dart';
 import 'package:web3auth_flutter/input.dart';
@@ -39,8 +40,13 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const Spacer(),
           AppButton(
-            onTap: () {
-              socialLogin(context);
+            onTap: () async {
+              final response = await QRScanUtil.scan(
+                context,
+                title: "Scan Invite QR",
+              );
+              print(response);
+              // socialLogin(context);
             },
             buttonText: "Contiue with Google",
           ),
