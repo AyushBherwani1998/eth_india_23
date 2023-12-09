@@ -2,7 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:frontend/core/app_config.dart';
+import 'package:frontend/core/hive_manager.dart';
 import 'package:frontend/core/service_locator.dart';
+import 'package:frontend/features/home_page/presentation/pages/home_page.dart';
 import 'package:frontend/features/login/presentation/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web3auth_flutter/enums.dart';
@@ -12,7 +15,7 @@ import 'package:web3auth_flutter/web3auth_flutter.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
-  ServiceLocator.init();
+  await ServiceLocator.init();
   final Uri redirectUrl;
   if (Platform.isAndroid) {
     redirectUrl = Uri.parse('demo://com.example.frontend/auth');
@@ -36,6 +39,7 @@ Future<void> main() async {
   );
 
   await Web3AuthFlutter.initialize();
+  await HiveManager.openBoxes();
 
   runApp(const MainApp());
 }
@@ -50,7 +54,7 @@ class MainApp extends StatelessWidget {
         colorScheme: const ColorScheme.dark(),
         textTheme: GoogleFonts.interTextTheme(),
       ),
-      home: const LoginPage(),
+      home: AppConfig.isFirstTimeUser() ? const LoginPage() : const HomePage(),
     );
   }
 }

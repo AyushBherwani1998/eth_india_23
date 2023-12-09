@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/core/curve_grid/curve_grid_provider.dart';
+import 'package:frontend/core/app_config.dart';
 import 'package:frontend/core/service_locator.dart';
-import 'package:frontend/core/utils/scan_util.dart';
 import 'package:frontend/core/widgets/app_button.dart';
-import 'package:frontend/features/quest/presentation/pages/mint_page.dart';
-import 'package:frontend/features/quest/presentation/pages/quest_page.dart';
-import 'package:frontend/features/quest/presentation/pages/questionnaire_page.dart';
+import 'package:frontend/features/home_page/presentation/pages/home_page.dart';
 import 'package:web3auth_flutter/enums.dart';
 import 'package:web3auth_flutter/input.dart';
 import 'package:web3auth_flutter/web3auth_flutter.dart';
+import 'package:web3dart/web3dart.dart';
 import 'package:web3modal_flutter/web3modal_flutter.dart';
 
 class LoginPage extends StatefulWidget {
@@ -19,6 +17,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  late final W3MService w3mService;
+
+  @override
+  void initState() {
+    super.initState();
+    w3mService = ServiceLocator.getIt<W3MService>();
+    w3mService.web3App?.onSessionConnect.subscribe((args) {
+      onWalletConnectConnected(args, context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +59,9 @@ class _LoginPageState extends State<LoginPage> {
               //     title: "Polygon Connect",
               //   );
               // }));
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const QuestionnairePage(
-                  contractLabel: "contractLabel",
-                  contractAddress: "",
-                );
-              }));
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return const HomePage();
+              // }));
               // final response = await QRScanUtil.scan(
               //   context,
               //   title: "Scan Invite QR",
@@ -77,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
               //     .catchError((_) {
               //   print(_);
               // });
-              // socialLogin(context);
+              socialLogin(context);
             },
             buttonText: "Contiue with Google",
           ),
@@ -97,15 +103,40 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> walletConnectLogin(BuildContext context) async {
-    ServiceLocator.getIt<W3MService>().openModal(context);
+    w3mService.openModal(context);
+  }
+
+  void onWalletConnectConnected(SessionConnect? args, BuildContext context) {
+    if (w3mService.isConnected) {
+      AppConfig.saveUserAddress(w3mService.address!);
+      AppConfig.saveWalletType(false);
+      navigateToHomePage(context);
+    }
+  }
+
+  void navigateToHomePage(BuildContext context) {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return const HomePage();
+    }));
   }
 
   Future<void> socialLogin(BuildContext context) async {
-    await Web3AuthFlutter.login(
-      LoginParams(
-        loginProvider: Provider.google,
-        mfaLevel: MFALevel.NONE,
-      ),
-    );
+    try {
+      await Web3AuthFlutter.login(
+        LoginParams(
+          loginProvider: Provider.google,
+          mfaLevel: MFALevel.NONE,
+        ),
+      );
+      final privateKey = await Web3AuthFlutter.getPrivKey();
+      final key = EthPrivateKey.fromHex(privateKey);
+      AppConfig.saveUserAddress(key.address.hex);
+      AppConfig.saveWalletType(false);
+      if (context.mounted) {
+        navigateToHomePage(context);
+      }
+    } catch (e, _) {
+      print(e);
+    }
   }
 }

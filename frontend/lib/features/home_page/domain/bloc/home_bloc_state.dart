@@ -6,7 +6,7 @@ sealed class HomeBlocState {}
 final class HomeBlocInitial extends HomeBlocState {}
 
 final class HomeBlocSuccessState extends HomeBlocState {
-  final TokenBalanceResponse tokenBalanceResponse;
+  final List<NFTBalanceResponse> tokenBalanceResponse;
 
   HomeBlocSuccessState({required this.tokenBalanceResponse});
   

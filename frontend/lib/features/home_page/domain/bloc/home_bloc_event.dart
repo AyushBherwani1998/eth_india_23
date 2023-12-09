@@ -8,6 +8,10 @@ sealed class HomeBlocEvent {
 }
 
 class FetchTokenBalanceEvent extends HomeBlocEvent {
+  final String address;
+
+  FetchTokenBalanceEvent({required this.address});
+
   @override
   Future<HomeBlocState> applyAsync({
     required HomeBlocState currentState,
@@ -15,7 +19,7 @@ class FetchTokenBalanceEvent extends HomeBlocEvent {
   }) async {
     try {
       final IHomePageProvider homePageProvider = HomePageProvider();
-      final reponse = await homePageProvider.fetchTokens("address");
+      final reponse = await homePageProvider.fetchTokens(address);
       return HomeBlocSuccessState(tokenBalanceResponse: reponse);
     } catch (e, _) {
       return HomeBlocErrorState(error: "error");
