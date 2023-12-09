@@ -25,10 +25,10 @@ class QuestTile extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(width: 16),
         Expanded(
           child: Container(
             padding: const EdgeInsets.all(16),
-            margin: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
               border: Border.all(
                 width: 1,
