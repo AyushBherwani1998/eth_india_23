@@ -32,7 +32,7 @@ class _ScanPageState extends State<ScanPage> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: ThemeData.dark().primaryColorDark,
+        backgroundColor: const Color(0xFF171023),
         middle: Text(
           widget.title,
           style: GoogleFonts.inter(
