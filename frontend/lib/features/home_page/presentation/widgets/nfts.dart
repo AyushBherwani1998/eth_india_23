@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:frontend/core/app_config.dart';
-import 'package:frontend/core/extensions.dart';
 import 'package:frontend/features/home_page/domain/models/nft_balance.dart';
 import 'package:frontend/features/quest/presentation/pages/quest_page.dart';
 
@@ -36,7 +34,9 @@ class NFTsListView extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return QuestPage(title: nfts[index].collectionName);
+                        return QuestPage(
+                          nftBalanceResponse: nfts[index],
+                        );
                       }),
                     );
                   },

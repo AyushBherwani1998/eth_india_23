@@ -24,9 +24,10 @@ class QuestInfoWidget extends StatelessWidget {
           QuestTile(
             index: 2,
             questModel: QuestModel(
-              title: "🗣️ Learn",
-              description: "Listen to Vitalik’s talk",
-              rewards: "You earn a Alt T-shirt NFT and T-shirt",
+              title: "🤝 Network",
+              description:
+                  "Connect with 2 people present in the event using Push chat",
+              rewards: "You earn a Alt socks NFT and 1inch Socks",
             ),
           ),
           const SizedBox(
@@ -35,8 +36,9 @@ class QuestInfoWidget extends StatelessWidget {
           QuestTile(
             index: 3,
             questModel: QuestModel(
-              title: "🗣️ Learn",
-              description: "Listen to Vitalik’s talk",
+              title: "🧠 Know new protocols",
+              description:
+                  "Chat with 2 or more protocol booth, knowing more about them",
               rewards: "You earn a Alt T-shirt NFT and T-shirt",
             ),
           )

@@ -1,19 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frontend/core/app_config.dart';
 import 'package:frontend/core/colors.dart';
 import 'package:frontend/core/service_locator.dart';
 import 'package:frontend/features/home_page/domain/bloc/home_bloc_bloc.dart';
-import 'package:frontend/features/quest/domain/models/quest_model.dart';
+import 'package:frontend/features/home_page/domain/models/nft_balance.dart';
 import 'package:frontend/features/quest/presentation/widgets/loader.dart';
 import 'package:frontend/features/quest/presentation/widgets/nft_grid_list.dart';
 import 'package:frontend/features/quest/presentation/widgets/quest_info.dart';
-import 'package:frontend/features/quest/presentation/widgets/quest_tile.dart';
 
 class QuestPage extends StatefulWidget {
-  final String title;
-  const QuestPage({super.key, required this.title});
+  final NFTBalanceResponse nftBalanceResponse;
+  const QuestPage({super.key, required this.nftBalanceResponse});
 
   @override
   State<QuestPage> createState() => _QuestPageState();
@@ -37,9 +35,8 @@ class _QuestPageState extends State<QuestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Offstage(),
         title: Text(
-          widget.title,
+          widget.nftBalanceResponse.collectionName,
           style: const TextStyle(
             fontSize: 16,
             color: Colors.white,
