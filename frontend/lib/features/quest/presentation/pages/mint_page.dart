@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/curve_grid/curve_grid_provider.dart';
-import 'package:frontend/core/curve_grid/models/transaction_to_sign_response.dart';
 import 'package:frontend/core/service_locator.dart';
 import 'package:frontend/core/widgets/app_button.dart';
+import 'package:frontend/features/quest/presentation/widgets/loader.dart';
 
 class MintPage extends StatefulWidget {
   final String contractLabel;
+  final bool isPoap;
+
   const MintPage({
     super.key,
     required this.contractLabel,
+    this.isPoap = false,
   });
 
   @override
@@ -21,6 +24,7 @@ class _MintPageState extends State<MintPage> {
 
   @override
   void initState() {
+    super.initState();
     curveGridProvider = ServiceLocator.getIt<CurveGridProvider>();
     // mintFuture = curveGridProvider.callContractWriteFunction(
     //   contractLabel: widget.contractLabel,
@@ -31,7 +35,7 @@ class _MintPageState extends State<MintPage> {
     //   args: ["args"],
     //   signAndSubmit: true,
     // );
-    mintFuture = Future.delayed(Duration(seconds: 3));
+    mintFuture = Future.delayed(const Duration(seconds: 3));
   }
 
   @override
@@ -61,12 +65,7 @@ class _MintPageState extends State<MintPage> {
             );
           }
 
-          return Center(
-              child: Image.asset(
-            'assets/loading.gif',
-            height: 100,
-            width: 100,
-          ));
+          return const Loader();
         },
       ),
     );
