@@ -1,4 +1,6 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:frontend/core/curve_grid/curve_grid_network_client.dart';
+import 'package:frontend/core/curve_grid/curve_grid_provider.dart';
 import 'package:frontend/features/home_page/domain/bloc/home_bloc_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:web3dart/web3dart.dart';
@@ -43,5 +45,8 @@ class ServiceLocator {
     );
 
     getIt.registerFactory(() => HomeBloc());
+
+    getIt.registerFactory(() => CurveGridNetworkClient());
+    getIt.registerFactory(() => CurveGridProvider(getIt()));
   }
 }
