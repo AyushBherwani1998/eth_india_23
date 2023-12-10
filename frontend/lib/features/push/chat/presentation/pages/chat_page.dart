@@ -10,6 +10,7 @@ import 'package:frontend/features/push/chat/domain/data/account_provider.dart';
 import 'package:frontend/features/push/chat/domain/data/chat_room_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:push_restapi_dart/push_restapi_dart.dart';
+import 'package:web3auth_flutter/web3auth_flutter.dart';
 
 class ChatPage extends ConsumerStatefulWidget {
   const ChatPage({super.key, required this.room});
@@ -28,11 +29,13 @@ class _ChatRoomScreenState extends ConsumerState<ChatPage> {
 
   @override
   void initState() {
-    ref.read(accountProvider).connectWallet(
-        "glory science timber unknown happy doctor walnut grain question float coffee trip");
+    Web3AuthFlutter.getPrivKey().then(
+      (value) => ref.read(accountProvider).connectWallet(value),
+    );
+
     room = Feeds(
       chatId:
-          "ec77fde404d882c75e3202444a85c72b9f686b2932e01faab0d9b637cfccdc43",
+          "1a64bbcf60a8ac24228a7ef9d4c428a06a1b8b65786349770fece36301a12798",
       about: null,
       did: null,
       intent: "eip155:0xD3FD4422210E69Fe8cD790a546Cbb5d7DCe904Ce",
@@ -47,10 +50,6 @@ class _ChatRoomScreenState extends ConsumerState<ChatPage> {
     );
 
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(chatRoomProvider).setCurrentChat(room);
-    });
   }
 
   @override

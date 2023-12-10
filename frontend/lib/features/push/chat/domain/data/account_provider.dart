@@ -28,7 +28,7 @@ class AccountProvider extends ChangeNotifier {
 
   connectWallet(String mnemonic) async {
     try {
-      final ethersWallet = ether.Wallet.fromMnemonic(mnemonic);
+      final ethersWallet = ether.Wallet.fromPrivateKey(mnemonic);
       final signer = EthersSigner(
         ethersWallet: ethersWallet,
         address: ethersWallet.address!,

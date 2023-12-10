@@ -1,16 +1,23 @@
 import 'dart:io';
 
+import 'package:ethers/ethers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:frontend/core/app_config.dart';
+import 'package:frontend/core/hive_manager.dart';
 import 'package:frontend/core/service_locator.dart';
-import 'package:frontend/features/push/chat/presentation/pages/chat_page.dart';
+import 'package:frontend/features/home_page/presentation/pages/home_page.dart';
+import 'package:frontend/features/login/presentation/pages/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:web3auth_flutter/enums.dart';
 import 'package:web3auth_flutter/input.dart';
 import 'package:web3auth_flutter/web3auth_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  ServiceLocator.init();
+  await dotenv.load(fileName: ".env");
+  await ServiceLocator.init();
   final Uri redirectUrl;
   if (Platform.isAndroid) {
     redirectUrl = Uri.parse('demo://com.example.frontend/auth');
@@ -34,6 +41,7 @@ Future<void> main() async {
   );
 
   await Web3AuthFlutter.initialize();
+  await HiveManager.openBoxes();
 
   runApp(const MainApp());
 }
@@ -43,8 +51,15 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: ProviderScope(child: ChatPage(room: null)),
+    return ProviderScope(
+      child: MaterialApp(
+        darkTheme: ThemeData(
+          colorScheme: const ColorScheme.dark(),
+          textTheme: GoogleFonts.interTextTheme(),
+        ),
+        home:
+            AppConfig.isFirstTimeUser() ? const LoginPage() : const HomePage(),
+      ),
     );
   }
 }
