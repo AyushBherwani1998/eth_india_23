@@ -51,7 +51,7 @@ class NFTsListView extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     width: width,
                     height: width,
-                    child: SvgPicture.asset('assets/add.svg'),
+                    child: Image.network(nfts[index].url),
                   ),
                 );
               },

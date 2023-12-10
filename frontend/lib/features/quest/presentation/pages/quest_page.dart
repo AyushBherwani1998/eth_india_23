@@ -54,14 +54,14 @@ class _QuestPageState extends State<QuestPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   children: [
-                    Placeholder(
-                      fallbackHeight: 80,
-                      fallbackWidth: 80,
+                    Image.network(
+                      widget.nftBalanceResponse.url,
+                      width: 80,
                     ),
-                    SizedBox(width: 16),
-                    Expanded(
+                    const SizedBox(width: 16),
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -118,9 +118,10 @@ class _QuestPageState extends State<QuestPage> {
                       bloc: homeBloc,
                       builder: (context, state) {
                         if (state is HomeBlocSuccessState) {
-                          return NFTGridList(
-                            nfts: state.tokenBalanceResponse,
-                          );
+                          if (state.tokenBalanceResponse.isNotEmpty) {
+                            return Image.asset('assets/cats.gif');
+                          }
+                          return Image.asset('assets/cats.gif');
                         }
 
                         return const Loader();

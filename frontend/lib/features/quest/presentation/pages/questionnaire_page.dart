@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/colors.dart';
+import 'package:frontend/features/quest/presentation/pages/mint_page.dart';
 import 'package:frontend/features/quest/presentation/widgets/answer_button.dart';
 import 'package:frontend/features/quest/presentation/widgets/loader.dart';
 
@@ -64,7 +65,19 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  AnswerButton(buttonText: "Yes", onTap: () {}),
+                  AnswerButton(
+                      buttonText: "Yes",
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return const MintPage(
+                              contractLabel: "contractLabel",
+                              contractType: "contractType",
+                            );
+                          }),
+                        );
+                      }),
                   const SizedBox(height: 16),
                   AnswerButton(buttonText: "No", onTap: () {}),
                   const Spacer(),

@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/core/app_config.dart';
 import 'package:frontend/core/curve_grid/curve_grid_provider.dart';
 import 'package:frontend/core/service_locator.dart';
+import 'package:frontend/core/utils/web3_util.dart';
 import 'package:frontend/core/widgets/app_button.dart';
 import 'package:frontend/features/quest/presentation/widgets/loader.dart';
 
 class MintPage extends StatefulWidget {
   final String contractLabel;
+  final String contractType;
   final bool isPoap;
 
   const MintPage({
     super.key,
     required this.contractLabel,
     this.isPoap = false,
+    required this.contractType,
   });
 
   @override
@@ -26,16 +30,8 @@ class _MintPageState extends State<MintPage> {
   void initState() {
     super.initState();
     curveGridProvider = ServiceLocator.getIt<CurveGridProvider>();
-    // mintFuture = curveGridProvider.callContractWriteFunction(
-    //   contractLabel: widget.contractLabel,
-    //   contractType: 'q',
-    //   methodName: "safeMint",
-    //   from: "from",
-    //   signer: "signer",
-    //   args: ["args"],
-    //   signAndSubmit: true,
-    // );
-    mintFuture = Future.delayed(const Duration(seconds: 3));
+    mintFuture = safeMint(widget.contractLabel, widget.contractType);
+    // mintFuture = Future.delayed(const Duration(seconds: 3));
   }
 
   @override
@@ -57,7 +53,9 @@ class _MintPageState extends State<MintPage> {
                   ),
                 ),
                 AppButton(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
                   buttonText: "Done",
                 ),
                 const SizedBox(height: 32)

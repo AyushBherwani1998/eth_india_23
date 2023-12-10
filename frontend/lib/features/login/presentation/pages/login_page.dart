@@ -34,22 +34,9 @@ class _LoginPageState extends State<LoginPage> {
       body: Column(
         children: [
           const Spacer(),
-          const Text(
-            "ALT-NFT",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 32),
-          const Text(
-            "Attend Learn Talk Earn NFT",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-            ),
+          Image.asset(
+            'assets/logo.png',
+            width: 200,
           ),
           const Spacer(),
           AppButton(
