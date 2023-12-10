@@ -39,9 +39,9 @@ contract SoulBoundNFT is ERC721, ERC721URIStorage, Ownable {
         return super.supportsInterface(interfaceId);
     }
 
-    function safeMint(address to, string memory uri) public onlyOwner {
+    function safeMint(address to) public onlyOwner {
         _tokenId++;
         _safeMint(to, _tokenId);
-        _setTokenURI(_tokenId, uri);
+        _setTokenURI(_tokenId, "https://i.imgur.com/kjSHQh3.jpg");
     }
 }

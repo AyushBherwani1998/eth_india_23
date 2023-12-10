@@ -8,8 +8,15 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract QuestNFT is ERC721, ERC721URIStorage, Ownable {
     uint256 private _tokenId;
 
+    struct Question {
+        string question;
+        string answer;
+    }
+
+    mapping(uint256 => Question) public tokenIdQuiz;
+
     constructor(address initialOwner)
-        ERC721("ALT", "ALT")
+        ERC721("Quest Hoodie", "QH")
         Ownable(initialOwner) 
         {}
 
@@ -29,8 +36,10 @@ contract QuestNFT is ERC721, ERC721URIStorage, Ownable {
         return super.supportsInterface(interfaceId);
     }
 
-    function safeMint(address to) public onlyOwner {
+    function safeMint(address to, string memory question, string memory answer) public onlyOwner {
         _tokenId++;
         _safeMint(to, _tokenId);
+        _setTokenURI(_tokenId, "https://gateway.lighthouse.storage/ipfs/QmUrNyqCEa8nErStkPGp479AkZGeSMqJbjwDYhqF7YR6JN");
+       
     }
 }
